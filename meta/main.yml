@@ -1,8 +1,8 @@
 #SPDX-License-Identifier: MIT-0
 galaxy_info:
-  role_name: "sops"
+  role_name: "gitleaks"
   author: Andre Rikkert de Koe
-  description: configure SOPS for a specfic user
+  description: Install gitleaks via existing repo and if not found directly from github
   company: ARK-ICT
   namespace: arikkert
 
