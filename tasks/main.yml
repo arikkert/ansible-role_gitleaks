@@ -4,6 +4,9 @@
 
 - name: Check if gitleaks is already installed
   ansible.builtin.command: gitleaks version
+  environment:
+    PATH: "{{ dest_path }}:{{ ansible_env.PATH }}"
+
   register: result
   failed_when: false
   changed_when: false
@@ -67,6 +70,6 @@
     - name: Install Gitleaks binary
       ansible.builtin.copy:
         src: /tmp/gitleaks
-        dest: /usr/local/bin/gitleaks
+        dest: "{{ dest_path }}/gitleaks"
         mode: '0755'
         remote_src: true
