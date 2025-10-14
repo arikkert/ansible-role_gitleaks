@@ -1,5 +1,5 @@
-Role Name
-=========
+gitleaks
+========
 
 Install gitleaks via existing repo and if not found directly from github.
 If already installed it currently will not upgrade the existing version.
