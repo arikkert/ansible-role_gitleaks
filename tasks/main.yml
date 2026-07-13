@@ -5,7 +5,7 @@
 - name: Check if gitleaks is already installed
   ansible.builtin.command: gitleaks version
   environment:
-    PATH: "{{ dest_path }}:{{ ansible_env.PATH }}"
+    PATH: "{{ dest_path }}:{{ ansible_facts['env']['PATH'] }}"
 
   register: result
   failed_when: false
@@ -46,7 +46,7 @@
 
     - name: Set architecture fact
       ansible.builtin.set_fact:
-        gitleaks_arch: "{{ 'x64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
+        gitleaks_arch: "{{ 'x64' if ansible_facts['architecture'] == 'x86_64' else ansible_facts['architecture'] }}"
 
     - name: Build Gitleaks download URL
       ansible.builtin.set_fact:
